@@ -9,22 +9,26 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define CLMK 0
+#define NUM 1
+#define SYM 2
+
 / {
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
-                        label = "QWERTY";
+                        label = "CLMK";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+// |  TAB |  Q  |  W  |  F  |  P  |  G  |   |  J  |  L  |   U  |  Y  |  ;  | BKSP |
+// |  ALT |  A  |  R  |  S  |  T  |  D  |   |  H  |  N  |   E  |  I  |  O  |  '   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M  |   ,  |  .  |  /  | SHFT |
+//                    | GUI |     | ENT |   | SPC | NUM | CTRL |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+   &kp TAB   &kp Q &kp W &kp F    &kp P  &kp G     &kp J     &kp L  &kp U     &kp Y   &kp SEMI &kp BSPC
+   &kp LALT  &kp A &kp R &kp S    &kp T  &kp D     &kp H     &kp N  &kp E     &kp I   &kp O    &kp SQT
+   &kp LSHFT &kp Z &kp X &kp C    &kp V  &kp B     &kp K     &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                         &kp LGUI &trans &kp RET   &kp SPACE &to 1 &kp RCTRL
                         >;
                 };
                 lower_layer {
