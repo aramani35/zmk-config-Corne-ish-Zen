@@ -9,9 +9,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define CLMK 0
-#define NUM 1
-#define SYM 2
 
 / {
         keymap {
@@ -39,10 +36,10 @@
 // | SHFT |     |     |     |      |     |   |     |     |      |     | ALT |  DEL |
 //                    | GUI | CLMK | ENT |   | SPC | SYM | CTRL |
                         bindings = <
-   &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6    &kp N7   &kp N8    &kp N9    &kp N0  &kp BSPC
+   &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6    &kp N7   &kp N8    &kp N9    &kp N0   &kp BSPC
    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &trans   &trans
    &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans    &trans   &trans    &trans    &kp RALT &kp DEL
-                          	        &kp LGUI     &to CLMK     &kp ENT        &kp SPACE &to SYM  &kp RCTRL
+                          	        &kp LGUI     &to CLMK     &kp ENT        &kp SPACE &to 2    &kp RCTRL
                         >;
                 };
 
