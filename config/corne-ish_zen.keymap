@@ -10,50 +10,63 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    behaviors {
+        td: tapdance {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAPDANCE";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
                         label = "CLMK";
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  F  |  P  |  G  |   |  J  |  L  |   U  |  Y  |  ;  | BKSP |
-// |  ALT |  A  |  R  |  S  |  T  |  D  |   |  H  |  N  |   E  |  I  |  O  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M  |   ,  |  .  |  /  | SHFT |
-//                    | GUI |     | ENT |   | SPC | NUM | CTRL |
+// |       TAB |  Q  |  W  |  F  |  P  |  G  |   |  J  |  L  |   U  |  Y  |  ;  | BKSP |
+// |   ALT/ESC |  A  |  R  |  S  |  T  |  D  |   |  H  |  N  |   E  |  I  |  O  |  '   |
+// | SHFT/CAPS |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M  |   ,  |  .  |  /  | SHFT |
+//                         | GUI |     | ENT |   | SPC | NUM | CTRL |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp F    &kp P  &kp G     &kp J     &kp L  &kp U     &kp Y   &kp SEMI &kp BSPC
-   &kp LALT  &kp A &kp R &kp S    &kp T  &kp D     &kp H     &kp N  &kp E     &kp I   &kp O    &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C    &kp V  &kp B     &kp K     &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                         &kp LGUI &none  &kp RET   &kp SPACE &to 1 &kp RCTRL
+   &kp TAB        &kp Q &kp W &kp F    &kp P  &kp G     &kp J     &kp L  &kp U     &kp Y   &kp SEMI &kp BSPC
+   &td LALT ESC   &kp A &kp R &kp S    &kp T  &kp D     &kp H     &kp N  &kp E     &kp I   &kp O    &kp SQT
+   &td LSHFT CAPS &kp Z &kp X &kp C    &kp V  &kp B     &kp K     &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                              &kp LGUI &none  &kp RET   &kp SPACE &to 1 &kp RCTRL
                         >;
                 };
                 lower_layer {
                         label = "NUM";
 // -----------------------------------------------------------------------------------------
-// |  ESC |  1  |  2  |  3  |  4   |  5  |   |  6  |  7  |   8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4  | BT5 |   | LFT | DWN |   UP | RGT |     |      |
-// | SHFT |     |     |     |      |     |   |     |     |      |     | ALT |  DEL |
-//                    | GUI | CLMK | ENT |   | SPC | SYM | CTRL |
+// |       TAB |  1  |  2  |  3  |  4   |  5  |   |  6  |  7  |   8  |  9  |  0  | BKSP |
+// |   ALT/ESC | DEL |     |  UP |      |     |   |  -  |  =  |   [  |  ]  |  \  |  `   |
+// | SHFT/CAPS |     | LFT | DWN |  RGT |     |   |  _  |  +  |   {  |  }  | "|" |  ~   |
+//                         | GUI | CLMK | ENT |   | SPC | SYM | CTRL |
+
                         bindings = <
-   &kp ESC    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6    &kp N7   &kp N8    &kp N9    &kp N0  &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &none   &none 
-   &kp LSHFT  &none        &none        &none        &none        &none          &none     &none    &none     &none     &kp RALT &kp DEL
-                          	        &kp LGUI     &to 0        &kp RET        &kp SPACE &to 2    &kp RCTRL
+   &kp TAB        &kp N1  &kp N2   &kp N3   &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp BSPC
+   &td LALT ESC   &kp DEL &none    &kp UP   &none     &none     &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
+   &td LSHFT CAPS &none   &kp LEFT &kp DOWN &kp RIGHT &none     &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
+                                   &kp LGUI &to 0     &kp RET   &kp SPACE &to 2     &kp RCTRL
                         >;
                 };
 
                 raise_layer {
                         label = "SYM";
 // -----------------------------------------------------------------------------------------
-// |  ESC |  !  |  @  |  #  |  $   |  %  |   |  ^  |  &  |   *  |  (  |  )  | BKSP |
-// |  ALT |     |     |     |      |     |   |  -  |  =  |   [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |      |     |   |  _  |  +  |   {  |  }  | "|" |  ~   |
-//                    | GUI | CLMK | ENT |   | SPC |     | CTRL |
+// |       TAB |  !   |  @  |  #  |  $   |  %  |   |  ^  |  &  |   *  |  (  |  )  | BKSP |
+// |   ALT/ESC | BTCLR| BT1 | BT2 |  BT3 | BT4 |   |  -  |  =  |   [  |  ]  |  \  |  `   |
+// | SHFT/CAPS |      |    |      |      | BT5 |   |  _  |  +  |   {  |  }  | "|" |  ~   |
+//                          | GUI | CLMK | ENT |   | SPC |     | CTRL |
                         bindings = <
-   &kp   ESC &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET  &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &none    &none  &none    &none    &none       &kp MINUS  &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &none    &none  &none    &none    &none       &kp UNDER  &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &to 0 &kp RET        &kp SPACE  &none     &kp RCTRL
+   &kp   ESC      &kp EXCL   &kp AT       &kp HASH     &kp DLLR     &kp PRCNT      &kp CARET  &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
+   &td LALT ESC   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &kp MINUS  &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+   &td LSHFT CAPS &none      &none        &none        &none        &bt BT_SEL 4   &kp UNDER  &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+                    	                  &kp LGUI     &to 0        &kp RET        &kp SPACE  &none     &kp RCTRL
                         >;
                 };
         };
