@@ -43,30 +43,30 @@
                         label = "NUM";
 // -----------------------------------------------------------------------------------------
 // |       TAB |  1  |  2  |  3  |  4   |  5  |   |  6  |  7  |   8  |  9  |  0  | BKSP |
-// |   ALT/ESC | DEL |     |  UP |      |     |   |  -  |  =  |   [  |  ]  |  \  |  `   |
-// | SHFT/CAPS |     | LFT | DWN |  RGT |     |   |  _  |  +  |   {  |  }  | "|" |  ~   |
+// |   ALT/ESC |     | LFT | DWN |  UP  | RGT |   |  -  |  =  |   [  |  ]  |  \  |  `   |
+// | SHFT/CAPS | ALT | DEL |     |      |     |   |  _  |  +  |   {  |  }  | "|" |  ~   |
 //                         | GUI | CLMK | ENT |   | SPC | SYM | CTRL |
 
                         bindings = <
-   &kp TAB        &kp N1  &kp N2   &kp N3   &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp BSPC
-   &td LALT ESC   &kp DEL &none    &kp UP   &none     &none     &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &td LSHFT CAPS &none   &kp LEFT &kp DOWN &kp RIGHT &none     &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                                   &kp LGUI &to 0     &kp RET   &kp SPACE &to 2     &kp RCTRL
+   &kp TAB        &kp N1  &kp N2   &kp N3   &kp N4 &kp N5      &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp BSPC
+   &td LALT ESC   &kp DEL &kp LEFT &kp DOWN &kp UP &kp RIGHT   &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
+   &td LSHFT CAPS &LALT   &DEL     &none    &none  &none       &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
+                                   &kp LGUI &to 0  &kp RET     &kp SPACE &to 2     &kp RCTRL
                         >;
                 };
 
                 raise_layer {
                         label = "SYM";
 // -----------------------------------------------------------------------------------------
-// |       TAB |  !   |  @  |  #  |  $   |  %  |   |  ^  |  &  |   *  |  (  |  )  | BKSP |
-// |   ALT/ESC | BTCLR| BT1 | BT2 |  BT3 | BT4 |   |  -  |  =  |   [  |  ]  |  \  |  `   |
-// | SHFT/CAPS |      |    |      |      | BT5 |   |  _  |  +  |   {  |  }  | "|" |  ~   |
-//                          | GUI | CLMK | ENT |   | SPC |     | CTRL |
+// |       TAB |  !   |   @  |  #  |  $   |  %  |   |  ^  |  &  |   *  |  (  |  )  | BKSP |
+// |   ALT/ESC | BTCLR|  BTP | BTN |      |     |   |  -  |  =  |   [  |  ]  |  \  |  `   |
+// | SHFT/CAPS | VOL- | VOL+ |     |      |     |   |  _  |  +  |   {  |  }  | "|" |  ~   |
+//                           | GUI | CLMK | ENT |   | SPC |     | CTRL |
                         bindings = <
-   &kp   ESC      &kp EXCL   &kp AT       &kp HASH     &kp DLLR     &kp PRCNT      &kp CARET  &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &td LALT ESC   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &kp MINUS  &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &td LSHFT CAPS &none      &none        &none        &none        &bt BT_SEL 4   &kp UNDER  &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	                  &kp LGUI     &to 0        &kp RET        &kp SPACE  &none     &kp RCTRL
+   &kp TAB        &kp EXCL     &kp AT       &kp HASH   &kp DLLR     &kp PRCNT      &kp CARET  &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
+   &td LALT ESC   &bt BT_CLR   &bt BT_PRV   &bt BT_NXT &none        &none          &kp MINUS  &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+   &td LSHFT CAPS &kp C_VOL_DN &kp C_VOL_UP &none      &none        &none          &kp UNDER  &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+                    	                    &kp LGUI   &to 0        &kp RET        &kp SPACE  &none     &kp RCTRL
                         >;
                 };
         };
