@@ -44,13 +44,13 @@
 // -----------------------------------------------------------------------------------------
 // |       TAB |  1  |  2  |  3  |  4   |  5  |   |  6  |  7  |   8  |  9  |  0  | BKSP |
 // |   ALT/ESC |     | LFT | DWN |  UP  | RGT |   |  -  |  =  |   [  |  ]  |  \  |  `   |
-// | SHFT/CAPS | ALT | DEL |     |      |     |   |  _  |  +  |   {  |  }  | "|" |  ~   |
+// | SHFT/CAPS |     | DEL |     |      |     |   |  _  |  +  |   {  |  }  | "|" |  ~   |
 //                         | GUI | CLMK | ENT |   | SPC | SYM | CTRL |
 
                         bindings = <
    &kp TAB        &kp N1  &kp N2   &kp N3   &kp N4 &kp N5      &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp BSPC
-   &td LALT ESC   &kp DEL &kp LEFT &kp DOWN &kp UP &kp RIGHT   &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &td LSHFT CAPS &LALT   &DEL     &none    &none  &none       &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
+   &td LALT ESC   &none   &kp LEFT &kp DOWN &kp UP &kp RIGHT   &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
+   &td LSHFT CAPS &none   &kp DEL  &none    &none  &none       &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
                                    &kp LGUI &to 0  &kp RET     &kp SPACE &to 2     &kp RCTRL
                         >;
                 };
